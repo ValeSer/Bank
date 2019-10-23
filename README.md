@@ -18,3 +18,8 @@ Then she would see
 14/01/2012 || || 500.00 || 2500.00
 13/01/2012 || 2000.00 || || 3000.00
 10/01/2012 || 1000.00 || || 1000.00</pre>
+
+
+#TODO
+1- modify date: now it is passed by user, we want it to be automatically generated
+2- check inputs: to only accept numbers
