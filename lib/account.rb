@@ -19,7 +19,7 @@ class Account
 
   def print_bank_statement
     puts "date || credit || debit || balance"
-    @bank_statement.each do |transaction|
+    @bank_statement.reverse.each do |transaction|
       print transaction[:date] + ' || '
       print ('%.2f' % transaction[:credit]).to_s + ' || '
       print ('%.2f' % transaction[:debit]).to_s + ' || '

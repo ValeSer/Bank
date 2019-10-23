@@ -38,8 +38,8 @@ describe Account do
     expect do
       subject.print_bank_statement
     end.to output("date || credit || debit || balance\n" +
-      "21/03/2018 || #{credit}.00 || 0.00 || #{credit}.00\n" +
-      "22/03/2018 || 0.00 || #{debit}.00 || #{credit - debit}.00\n").to_stdout
+      "22/03/2018 || 0.00 || #{debit}.00 || #{credit - debit}.00\n" +
+      "21/03/2018 || #{credit}.00 || 0.00 || #{credit}.00\n").to_stdout
   end
 
 
