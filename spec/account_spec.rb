@@ -31,16 +31,16 @@ describe Account do
     expect(subject.bank_statement).to eq(statement)
   end
   it 'prints bank_statement out' do
-      expect do
-        subject.deposit(1000, '21/03/2018')
-        subject.withdrawal(500, '22/03/2018')
-        statement = {date: '21/03/2018', credit: 1000, debit: 0, balance: 1000},
-          {date: '22/03/2018', credit: 0, debit: 500, balance: 500}
-        subject.print_bank_statement
-      end.to output("date || credit || debit || balance\n" +
-        "21/03/2018|| 1000.00 || 0.00 || 1000.00\n" +
-        "22/03/2018 || 0.00 || 500.00 || 500.00").to_stdout
-    end
+    credit = rand(500..1500)
+    debit = rand(1..credit)
+    subject.deposit(credit, '21/03/2018')
+    subject.withdrawal(debit, '22/03/2018')
+    expect do
+      subject.print_bank_statement
+    end.to output("date || credit || debit || balance\n" +
+      "21/03/2018 || #{credit}.00 || 0.00 || #{credit}.00\n" +
+      "22/03/2018 || 0.00 || #{debit}.00 || #{credit - debit}.00\n").to_stdout
+  end
 
 
 

@@ -18,9 +18,16 @@ class Account
   end
 
   def print_bank_statement
-    print "date || credit || debit || balance\n" +
-      "21/03/2018|| 1000.00 || 0.00 || 1000.00\n" +
-      "22/03/2018 || 0.00 || 500.00 || 500.00"
+    puts "date || credit || debit || balance"
+    @bank_statement.each do |transaction|
+      print transaction[:date] + ' || '
+      print ('%.2f' % transaction[:credit]).to_s + ' || '
+      print ('%.2f' % transaction[:debit]).to_s + ' || '
+      puts  ('%.2f' % transaction[:balance]).to_s
+
+
+    end
+
   end
 
 private
